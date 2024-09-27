@@ -11,11 +11,13 @@ class CustomerTest {
     private Customer nedflixCustomer;
     private LocalDate nedflixJoinDate;
     private LocalDate laterJoinDate;
+    private LocalDate earlierJoinDate;
 
     @BeforeEach
     void setUp() throws Exception {
         nedflixJoinDate = LocalDate.of(2008, 10, 11);
         laterJoinDate = LocalDate.of(2009, 1, 1);
+        earlierJoinDate = LocalDate.of(2007, 1, 1);
         nedflixCustomer = new Customer("nedflix", nedflixJoinDate);
     }
 
@@ -24,51 +26,61 @@ class CustomerTest {
     @Test
     void compareTo_withAnEqualCustomer_returnsZero() {
         // GIVEN
+        Customer other = new Customer("nedflix", nedflixJoinDate);
 
         // WHEN
+        int result = nedflixCustomer.compareTo(other);
 
         // THEN
-        fail("Test not implemented yet!");
+        assertEquals(0, result);
     }
 
     @Test
     void compareTo_withLaterCustomerName_returnsNegative() {
         // GIVEN
+        Customer other = new Customer("newflix", nedflixJoinDate);
 
         // WHEN
+        int result = nedflixCustomer.compareTo(other);
 
         // THEN
-        fail("Test not implemented yet!");
+        assertEquals(-1, result);
     }
 
     @Test
     void compareTo_withEarlierCustomerName_returnsPositive() {
         // GIVEN
+        Customer other = new Customer("nebflix", nedflixJoinDate);
 
         // WHEN
+        int result = nedflixCustomer.compareTo(other);
 
         // THEN
-        fail("Test not implemented yet!");
+        assertEquals(1, result);
     }
 
     @Test
     void compareTo_withSameCustomerNameLaterJoinDate_returnsNegative() {
         // GIVEN
+        Customer other = new Customer("nedflix", laterJoinDate);
 
         // WHEN
+        int result = nedflixCustomer.compareTo(other);
 
         // THEN
-        fail("Test not implemented yet!");
+        assertEquals(-1, result);
     }
 
     @Test
     void compareTo_withSameCustomerNameEarlierJoinDate_returnsPositive() {
         // GIVEN
+        Customer other = new Customer("nedflix", earlierJoinDate);
 
         // WHEN
+        int result = nedflixCustomer.compareTo(other);
 
         // THEN
-        fail("Test not implemented yet!");
+        assertEquals(1, result);
     }
 
     // PARTICIPANTS: leave these tests below alone
