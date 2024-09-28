@@ -61,13 +61,23 @@ public class Customer implements Comparable <Customer>{
     }
 
     @Override
-    public int compareTo(Customer o) {
-        if (this.getName().compareTo(o.getName()) > 0) return 1;
-        else if (this.getName().compareTo(o.getName()) < 0) return -1;
-        if (this.getName().compareTo(o.getName()) == 0) {
-            if (this.getJoinDate().isAfter(o.getJoinDate())) return 1;
-            else if (this.getJoinDate().isBefore(o.getJoinDate())) return -1;
+    public int compareTo(Customer that) {
+        if (this.equals(that)) {
+            return 0;
+        } else {
+            if (!this.name.equals(that.getName())) {
+                return this.name.compareTo(that.getName());
+            } else {
+                return this.joinDate.compareTo((that.getJoinDate()));
+            }
         }
-        return 0;
+
+//        if (this.getName().compareTo(o.getName()) > 0) return 1;
+//        else if (this.getName().compareTo(o.getName()) < 0) return -1;
+//        if (this.getName().compareTo(o.getName()) == 0) {
+//            if (this.getJoinDate().isAfter(o.getJoinDate())) return 1;
+//            else if (this.getJoinDate().isBefore(o.getJoinDate())) return -1;
+//        }
+//        return 0;
     }
 }

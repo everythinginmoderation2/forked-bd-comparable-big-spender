@@ -44,7 +44,7 @@ class CustomerTest {
         int result = nedflixCustomer.compareTo(other);
 
         // THEN
-        assertEquals(-1, result);
+        assertTrue(result < 0, "Expected compareTo to return negative for customer with later name.");
     }
 
     @Test
@@ -56,7 +56,7 @@ class CustomerTest {
         int result = nedflixCustomer.compareTo(other);
 
         // THEN
-        assertEquals(1, result);
+        assertTrue(result > 1, "Expected compareTo to return positive for customer with earlier name");
     }
 
     @Test
